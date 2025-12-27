@@ -1,260 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>duwid · Personal Navigation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)),
-            url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.3rem;
-            color: var(--primary);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .entry-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .entry-card {
-            background: var(--white);
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
-        }
-
-        .entry-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .entry-card i {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Minimal Enhanced</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f8f0ff;color:#333;line-height:1.6;overflow-x:hidden;}
+header{position:sticky;top:0;background:rgba(138,43,226,0.9);color:#fff;padding:1rem;text-align:center;z-index:100;}
+nav a{color:#fff;text-decoration:none;margin:0 1rem;font-weight:600;transition:0.3s;}
+nav a:hover{color:#ffb6c1;}
+section{min-height:80vh;padding:5rem 2rem;text-align:center;opacity:0;transform:translateY(20px);transition:1s;position:relative;}
+section.visible{opacity:1;transform:translateY(0);}
+.hero{
+    background:url('https://images.unsplash.com/photo-1618889169930-9d4e0c45b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;position:relative;
+}
+.hero canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+.hero-content{position:relative;z-index:1;max-width:800px;animation:fadeIn 1.5s ease forwards;opacity:0;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero h1{font-size:3rem;margin-bottom:1rem;text-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+.hero p{font-size:1.3rem;margin-bottom:2rem;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+.btn{background:#ffb6c1;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:0.3s;box-shadow:0 0 10px rgba(255,182,193,0.5);display:inline-block;}
+.btn:hover{background:#8a2be2;box-shadow:0 0 20px rgba(138,43,226,0.7);transform:translateY(-5px);}
+.about, .cta{background:#fff;border-radius:10px;max-width:800px;margin:2rem auto;padding:2rem;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+footer{background:#2c003e;color:#fff;padding:2rem;text-align:center;}
+@media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}}
+</style>
 </head>
 <body>
 
 <header>
-    <div class="container nav-container">
-        <div class="logo">
-            <i class="fas fa-compass"></i>
-            <span>duwid</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#entry">Navigation</a></li>
-            </ul>
-        </nav>
-    </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#cta">Join</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-    <div class="container hero-content">
-        <h1>Personal Navigation & Experimental Site</h1>
-        <p>
-            This is a personal website used for learning, experimentation,
-            and as an entry point to various tools and navigation services.
-        </p>
-        <a href="#entry" class="btn">Enter Navigation</a>
-    </div>
+<canvas id="particle-canvas"></canvas>
+<canvas id="cloud-canvas"></canvas>
+<div class="hero-content">
+<h1>Welcome to Anime Minimal</h1>
+<p>Simple, dreamy, and minimalistic anime-inspired landing page.</p>
+<a href="#cta" class="btn">Join Now</a>
+</div>
 </section>
 
-<section id="about">
-    <div class="container">
-        <div class="section-title">
-            <h2>About This Site</h2>
-        </div>
-        <div class="about-content">
-            <p>
-                This website is maintained by <strong>duwid</strong> as a personal project.
-                It serves as a lightweight homepage and navigation entry for self-hosted services,
-                experiments, and future web applications.
-            </p>
-            <p>
-                The content and services provided here are for personal learning and non-commercial use.
-            </p>
-        </div>
-    </div>
+<section class="about" id="about">
+<h2>About</h2>
+<p>This page combines minimalist design with a dreamy anime aesthetic, enhanced by floating cherry blossom petals, drifting clouds, and soft sparkling lights.</p>
 </section>
 
-<section id="entry">
-    <div class="container">
-        <div class="section-title">
-            <h2>Navigation Entrance</h2>
-        </div>
-
-        <div class="entry-links">
-            <div class="entry-card">
-                <i class="fas fa-th-large"></i>
-                <h3>Navigation System</h3>
-                <p>Advanced navigation system (deploying).</p>
-                <p><em>Coming soon</em></p>
-            </div>
-
-            <div class="entry-card">
-                <i class="fas fa-terminal"></i>
-                <h3>Experiments</h3>
-                <p>Personal technical experiments and demos.</p>
-            </div>
-
-            <div class="entry-card">
-                <i class="fab fa-github"></i>
-                <h3>GitHub</h3>
-                <p>Source code and open projects.</p>
-            </div>
-        </div>
-    </div>
+<section class="cta" id="cta">
+<h2>Join Our Community</h2>
+<p>Become part of our anime-inspired world and enjoy creative content in a clean, minimalistic style. Every action counts!</p>
+<a href="#" class="btn">Get Started</a>
 </section>
 
 <footer>
-    <p>
-        © 2025 duwid · Personal experimental website · Non-commercial use
-    </p>
+<p>&copy; 2025 Anime Minimal. All rights reserved.</p>
 </footer>
+
+<script>
+// Scroll fade-in animation
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.1});
+sections.forEach(sec=>observer.observe(sec));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+        e.preventDefault();
+        const target=document.querySelector(a.getAttribute('href'));
+        if(target) window.scrollTo({top:target.offsetTop-50,behavior:'smooth'});
+    });
+});
+
+// Particle Canvas (Cherry Blossom petals)
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+class Petal {
+    constructor() {
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*6+2;
+        this.speedX=Math.random()*0.3-0.15;
+        this.speedY=Math.random()*0.3+0.3;
+        this.angle=Math.random()*Math.PI*2;
+        this.angularSpeed=Math.random()*0.02-0.01;
+        this.color=`rgba(255,182,193,${Math.random()*0.7+0.3})`;
+    }
+    update() {
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        this.angle+=this.angularSpeed;
+        if(this.y>canvas.height) this.y=0;
+        if(this.x>canvas.width) this.x=0;
+        if(this.x<0) this.x=canvas.width;
+    }
+    draw() {
+        ctx.save();
+        ctx.translate(this.x,this.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle=this.color;
+        ctx.beginPath();
+        ctx.moveTo(0,-this.size/2);
+        ctx.bezierCurveTo(this.size/2,-this.size/2,this.size/2,this.size/2,0,this.size/2);
+        ctx.bezierCurveTo(-this.size/2,this.size/2,-this.size/2,-this.size/2,0,-this.size/2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+const petals=[];
+for(let i=0;i<120;i++) petals.push(new Petal());
+
+// Cloud Canvas
+const cloudCanvas=document.getElementById('cloud-canvas');
+const cloudCtx=cloudCanvas.getContext('2d');
+cloudCanvas.width=window.innerWidth;
+cloudCanvas.height=window.innerHeight;
+
+class Cloud {
+    constructor(){
+        this.x=Math.random()*cloudCanvas.width;
+        this.y=Math.random()*cloudCanvas.height/2;
+        this.size=Math.random()*80+60;
+        this.speed=Math.random()*0.2+0.1;
+    }
+    update(){this.x+=this.speed;if(this.x>cloudCanvas.width)this.x=-this.size;}
+    draw(){
+        cloudCtx.fillStyle='rgba(255,255,255,0.3)';
+        cloudCtx.beginPath();
+        cloudCtx.ellipse(this.x,this.y,this.size,40,0,0,2*Math.PI);
+        cloudCtx.fill();
+    }
+}
+
+const clouds=[];
+for(let i=0;i<8;i++) clouds.push(new Cloud());
+
+// Sparkling lights
+class Spark{
+    constructor(){
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*2+1;
+        this.alpha=Math.random();
+        this.speed=Math.random()*0.02+0.01;
+    }
+    update(){this.alpha+=this.speed;if(this.alpha>1){this.alpha=0;this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;}}
+    draw(){ctx.fillStyle=`rgba(255,255,255,${this.alpha})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,2*Math.PI);ctx.fill();}
+}
+
+const sparks=[];
+for(let i=0;i<60;i++) sparks.push(new Spark());
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    cloudCtx.clearRect(0,0,cloudCanvas.width,cloudCanvas.height);
+    clouds.forEach(c=>{c.update();c.draw();});
+    petals.forEach(p=>{p.update();p.draw();});
+    sparks.forEach(s=>{s.update();s.draw();});
+    requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize',()=>{
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    cloudCanvas.width=window.innerWidth;
+    cloudCanvas.height=window.innerHeight;
+});
+</script>
 
 </body>
 </html>
